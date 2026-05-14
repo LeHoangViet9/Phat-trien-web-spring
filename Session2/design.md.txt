@@ -1,0 +1,60 @@
+User APIs
+Get all users
+GET /users
+Create new user
+POST /users
+Request Body
+{
+  "name": "John",
+  "email": "john@gmail.com",
+  "role": "member"
+}
+Update user role
+PATCH /users/{id}/role
+Request Body
+{
+  "role": "admin"
+}
+Delete user
+DELETE /users/{id}
+Task APIs
+Get all tasks
+GET /tasks
+Create new task
+POST /tasks
+Request Body
+{
+  "title": "Finish project",
+  "description": "Complete REST API",
+  "priority": "high",
+  "status": "pending",
+  "userId": 1
+}
+Update task status
+PATCH /tasks/{id}/status
+Request Body
+{
+  "status": "completed"
+}
+Delete task
+DELETE /tasks/{id}
+Search APIs
+Find high priority tasks
+GET /tasks?priority=high
+Find high priority tasks of user id = 1
+GET /tasks?priority=high&userId=1
+Get all tasks of a user
+GET /users/{id}/tasks
+Assign Task
+Assign task to user
+PUT /tasks/{taskId}/users/{userId}
+Validation
+Name and title cannot be empty
+Email must be valid
+Priority: low, medium, high
+Status: pending, in_progress, completed
+userId must exist
+Relationship
+One User has many Tasks
+One Task belongs to one User
+userId is foreign key
