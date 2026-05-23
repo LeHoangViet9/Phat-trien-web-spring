@@ -16,7 +16,11 @@ public class StudentEnrollmentController {
     public StudentEnrollment saveStudentEnrollment(@RequestBody StudentEnrollment studentEnrollment) {
         return studentEnrollmentService.creStudentEnrollment(studentEnrollment);
     }
+<<<<<<< HEAD
     @GetMapping("{id}")
+=======
+    @GetMapping
+>>>>>>> c4b39f1be6a603d1182ab456bb21746cf5482a7e
     public StudentEnrollment getAllStudentEnrollmentById(@PathVariable  Long id) {
         return studentEnrollmentService.getStudentEnrollmentById(id);
     }

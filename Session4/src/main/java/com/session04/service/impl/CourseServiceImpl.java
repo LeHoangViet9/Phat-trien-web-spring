@@ -1,21 +1,30 @@
 package com.session04.service.impl;
 
 import com.session04.model.dto.request.CourseCreateRequest;
+<<<<<<< HEAD
 import com.session04.model.dto.response.CourseInstructorResponse;
 import com.session04.model.dto.response.CourseResponse;
 import com.session04.model.dto.response.CourseResponseV2;
 import com.session04.model.dto.response.PageResponse;
 import com.session04.model.entity.Course;
 import com.session04.model.entity.CourseStatus;
+=======
+import com.session04.model.dto.respose.CourseInstructorResponse;
+import com.session04.model.dto.respose.CourseResponse;
+import com.session04.model.entity.Course;
+>>>>>>> c4b39f1be6a603d1182ab456bb21746cf5482a7e
 import com.session04.model.entity.Instructor;
 import com.session04.repository.CourseRepository;
 import com.session04.repository.InstructorRepository;
 import com.session04.service.CourseService;
 import lombok.RequiredArgsConstructor;
+<<<<<<< HEAD
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+=======
+>>>>>>> c4b39f1be6a603d1182ab456bb21746cf5482a7e
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,6 +56,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
+<<<<<<< HEAD
     public CourseResponseV2 createCourse(CourseCreateRequest request) {
         Instructor instructor=instructorRepository.findById(request.getInstructorId()).orElseThrow(()->new RuntimeException("Can not found instructor"));
         Course course=Course.builder().title(request.getTitle()).status(request.getStatus()).instructor(instructor).build();
@@ -163,6 +173,26 @@ public class CourseServiceImpl implements CourseService {
 //        return coursePage.map(this::mapToResponse);
 //    }
 
+=======
+    public CourseResponse createCourse(CourseCreateRequest request) {
+
+        Instructor instructor = instructorRepository
+                .findById(request.getInstructorId())
+                .orElseThrow(() ->
+                        new RuntimeException("Can not found")
+                );
+
+        Course course = Course.builder()
+                .title(request.getTitle())
+                .status(request.getStatus())
+                .instructor(instructor)
+                .build();
+
+        courseRepository.save(course);
+
+        return mapToResponse(course);
+    }
+>>>>>>> c4b39f1be6a603d1182ab456bb21746cf5482a7e
 
     private CourseResponse mapToResponse(Course course) {
 

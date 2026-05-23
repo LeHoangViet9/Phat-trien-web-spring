@@ -1,6 +1,7 @@
 package com.session04.controller;
 
 import com.session04.model.dto.request.CourseCreateRequest;
+<<<<<<< HEAD
 import com.session04.model.dto.response.ApiResponse;
 import com.session04.model.dto.response.CourseResponse;
 import com.session04.model.dto.response.CourseResponseV2;
@@ -14,13 +15,28 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+=======
+import com.session04.model.dto.respose.CourseResponse;
+import com.session04.model.entity.Course;
+import com.session04.service.CourseService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+>>>>>>> c4b39f1be6a603d1182ab456bb21746cf5482a7e
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/courses")
 public class CourseController {
     private final CourseService courseService;
     @PostMapping
+<<<<<<< HEAD
     public ResponseEntity<CourseResponseV2> createCourse(
+=======
+    public ResponseEntity<CourseResponse> createCourse(
+>>>>>>> c4b39f1be6a603d1182ab456bb21746cf5482a7e
             @RequestBody CourseCreateRequest request
     ) {
 
@@ -28,6 +44,7 @@ public class CourseController {
                 courseService.createCourse(request)
         );
     }
+<<<<<<< HEAD
 // Session 4
 //    @GetMapping
 //    public ResponseEntity<List<CourseResponse>> getCourses() {
@@ -72,6 +89,15 @@ public class CourseController {
                         status,keyword,page,size,sortBy,direction
                 ), HttpStatus.OK
         ));
+=======
+
+    @GetMapping
+    public ResponseEntity<List<CourseResponse>> getCourses() {
+
+        return ResponseEntity.ok(
+                courseService.findAll()
+        );
+>>>>>>> c4b39f1be6a603d1182ab456bb21746cf5482a7e
     }
 
     @GetMapping("{id}")
